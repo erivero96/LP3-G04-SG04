@@ -19,6 +19,7 @@ public class Principal {
             System.out.println("Adivinaste!!!!");
             System.out.println("Ganaste tu premio(nada)");
             System.out.println("Primer Commit");
+            System.out.println("Segundo commit");
         }
 
         else
