@@ -12,10 +12,15 @@ public class Principal {
             rp = sc.nextInt();
             if (rp == 200)
                 fl = true;
-        } while(vida < 2 && !fl);
+        } while(vida < 5 && !fl);
 
         if( fl == true)
+        {
             System.out.println("Adivinaste!!!!");
+            System.out.println("Ganaste tu premio(nada)");
+            System.out.println("Primer Commit");
+        }
+
         else
             System.out.println("ups, perdiste");
     }    
