@@ -1,3 +1,5 @@
+
+
 public class PerfilMedico {
     private String nombre;
     private String apellido;
@@ -6,10 +8,10 @@ public class PerfilMedico {
     private String mes;
     private String dia;
     private String fechaNacimiento;
-    private int altura;
-    private int peso;
+    private double altura;
+    private double peso;
 
-    public PerfilMedico(String nombre,String apellido, String sexo, String año,String mes, String dia, int altura, int peso) {
+    public PerfilMedico(String nombre,String apellido, String sexo, String año,String mes, String dia, double altura, double peso) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
@@ -37,11 +39,11 @@ public class PerfilMedico {
         return fechaNacimiento;
     }
 
-    public int getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
@@ -79,7 +81,7 @@ public class PerfilMedico {
         edad = añoA - Integer.parseInt(año); // Usamos el método "parseInt" de la clase Integer para convertir el atributo años, que definimos como String, a int
     
         if (Integer.parseInt(mes) > mesA || (Integer.parseInt(mes) == mesA && Integer.parseInt(dia) > diaA)) {
-            edad--; 
+            edad--; // Ajustar la edad si el cumpleaños aún no ha ocurrido este año
         }
     
         return edad;
@@ -94,7 +96,7 @@ public class PerfilMedico {
 
     public double calcularIMC() {
         double IMC;
-        IMC = peso / altura;
+        IMC = this.peso/((this.altura/100)*(this.altura/100)); //Se modifico la formula de la practica, pues no era correcta para calcular el IMC
         return IMC;
     }
 
