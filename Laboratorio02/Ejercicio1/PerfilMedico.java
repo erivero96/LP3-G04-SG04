@@ -69,8 +69,33 @@ public class PerfilMedico {
         this.peso = peso;
     }
     
-    public void calcularEdad() {
-        
+    public int calcularEdad() {
+        int diaA, mesA, añoA, edad; //Variables que almacenan la fecha actual
+    
+        diaA = 26;
+        mesA = 8;
+        añoA = 2023;
+    
+        edad = añoA - Integer.parseInt(año); // Usamos el método "parseInt" de la clase Integer para convertir el atributo años, que definimos como String, a int
+    
+        if (Integer.parseInt(mes) > mesA || (Integer.parseInt(mes) == mesA && Integer.parseInt(dia) > diaA)) {
+            edad--; 
+        }
+    
+        return edad;
+    }
+    
+
+    public double calcularFCM() {
+        int edad = calcularEdad();
+        double FCM = 208 - (0.7 * edad);
+        return FCM;
+    }
+
+    public double calcularIMC() {
+        double IMC;
+        IMC = peso / altura;
+        return IMC;
     }
 
 }
