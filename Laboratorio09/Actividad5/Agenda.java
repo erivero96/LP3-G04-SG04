@@ -49,7 +49,7 @@ public class Agenda {
         ArrayPersona directorio = new ArrayPersona();
         Persona nuevaPersona;
         try{
-            agendaFile = new FileInputStream("c:/ficheros/agenda.txt");
+            agendaFile = new FileInputStream("Actividad5/agenda.txt");
             while(true){
                 nuevaPersona = cargaAgenda();
                 if (nuevaPersona == null)

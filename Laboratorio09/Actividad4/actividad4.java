@@ -10,7 +10,7 @@ public class actividad4 {
         FileInputStream file;
         byte b[] = new byte[1024];
         try{
-            file = new FileInputStream("c:/ficheros/TestFile.java");
+            file = new FileInputStream("Actividad4/TestFile.java");
             file.read(b);
             String s = new String(b);
             ViewFile view = new ViewFile(s);
