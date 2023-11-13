@@ -27,24 +27,30 @@ public class Agenda {
         }
     }
     
-    private String leeEntrada(InputStream entrada) throws IOException{
-        byte chars[] = new byte [longLinea];
+    private String leeEntrada(InputStream entrada) throws IOException {
+        byte chars[] = new byte[longLinea];
         int contador = 0;
-        while (contador < longLinea && (chars[contador++] = (byte) entrada.read()) != '\n')
-            if(chars[contador-1] == -1)
-                return null;
-        return (new String (chars, 0, contador-1));
+        int byteLeido;
+        while (contador < longLinea && (byteLeido = entrada.read()) != '\n') {
+            if (byteLeido == -1) {
+                // Si llegamos al final del archivo, devolvemos una cadena vacía
+                return "";
+            }
+            chars[contador++] = (byte) byteLeido;
+        }
+        return new String(chars, 0, contador).trim();
     }
 
-    private Persona cargaAgenda() throws IOException{
+    private Persona cargaAgenda() throws IOException {
         String nombre = leeEntrada(agendaFile);
-        if(nombre == null)
+        if ("".equals(nombre)) {
             return null;
-        String telefono  = leeEntrada(agendaFile);
+        }
+        String telefono = leeEntrada(agendaFile);
         String direccion = leeEntrada(agendaFile);
         return new Persona(nombre, telefono, direccion);
     }
-
+    
     private ArrayPersona cargaContactos(){
         ArrayPersona directorio = new ArrayPersona();
         Persona nuevaPersona;
